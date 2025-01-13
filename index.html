@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>ImageViewer</title>
+    <style>
+        body {
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 98.4vh;
+            overflow: hidden;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        #main-image {
+            max-height: 100%;
+        }
+
+        #previous-image-button {
+            position: absolute;
+            left: 0;
+            transform: rotate(180deg);
+            cursor: pointer;
+            z-index: 999;
+        }
+
+        #previous-image-button img {
+            width: 50px;
+        }
+        #previous-image-button:hover,#next-image-button:hover {
+            background-color: #476b5d9f;
+        }
+
+        #next-image-button {
+            position: absolute;
+            right: 0;
+            cursor: pointer;
+            z-index: 999;
+        }
+
+        #next-image-button img {
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="previous-image-button"><img src="next.svg" /></div>
+    <img id="main-image"></img>
+    <div id="next-image-button"><img src="next.svg" /></div>
+</body>
+
+<script src="./renderer.js"></script>
+
+</html>

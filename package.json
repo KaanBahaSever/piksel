@@ -1,0 +1,25 @@
+{
+  "name": "image-to-viewer",
+  "version": "1.0.0",
+  "description": "Your app description",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron . C:/Users/BAHA/Pictures/Ge53Q7UXkAA6Y1b.jpg",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.example.yourapp",
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": ["x64", "ia32"]
+        }
+      ]
+    }
+  },
+  "devDependencies": {
+    "electron": "^26.4.0",
+    "electron-builder": "^23.0.0"
+  }
+}
