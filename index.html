@@ -54,11 +54,23 @@
         #next-image-button img {
             width: 50px;
         }
+
+        .loading {
+            width: 70px;
+        }
+
+        #loading-icon {
+            position: absolute;
+            z-index: -1;
+        }
     </style>
 </head>
 
 <body>
     <div id="previous-image-button"><img src="next.svg" /></div>
+    <div id="loading-icon" style="display: none;">
+        <img class="loading" src="./loading.gif" alt="Loading..." />
+    </div>
     <img id="main-image"></img>
     <div id="next-image-button"><img src="next.svg" /></div>
 </body>

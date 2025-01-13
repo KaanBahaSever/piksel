@@ -4,7 +4,22 @@ const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp'];
 currentIndex = 0;
 imagePaths = [];
 
-console.log("renderer.js loaded");
+const showLoadingIcon = () => {
+  document.getElementById('loading-icon').style.display = 'block';
+};
+
+const hideLoadingIcon = () => {
+  document.getElementById('loading-icon').style.display = 'none';
+};
+
+const loadImage = (src) => {
+  const img = document.getElementById('main-image');
+  showLoadingIcon();
+  img.onload = () => {
+    hideLoadingIcon();
+  };
+  img.src = src;
+};
 
 const previousImage = () => {
   const image = document.getElementById('main-image');
@@ -12,7 +27,7 @@ const previousImage = () => {
   if (currentIndex < 0) {
     currentIndex = imagePaths.length - 1;
   }
-  image.src = imagePaths[currentIndex];
+  loadImage(imagePaths[currentIndex]);
 };
 
 const nextImage = () => {
@@ -21,13 +36,10 @@ const nextImage = () => {
   if (currentIndex === imagePaths.length) {
     currentIndex = 0;
   }
-  image.src = imagePaths[currentIndex];
+  loadImage(imagePaths[currentIndex]);
 };
 
 window.electron.openFile((filePath) => {
-  const img = document.getElementById('main-image');
-  img.src = `file://${filePath}`;
-
   const dirPath = path.dirname(filePath);
 
   fs.readdir(dirPath, (err, files) => {
@@ -41,6 +53,7 @@ window.electron.openFile((filePath) => {
     });
 
     currentIndex = imagePaths.indexOf(`file://${filePath}`);
+    loadImage(imagePaths[currentIndex]);
   });
 
   document.getElementById('next-image-button').addEventListener('click', nextImage);
