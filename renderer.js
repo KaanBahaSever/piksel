@@ -14,9 +14,17 @@ const hideLoadingIcon = () => {
 
 const loadImage = (src) => {
   const img = document.getElementById('main-image');
-  showLoadingIcon();
+  img.style.display = 'none';
+
+  const loadingTimeout = setTimeout(() => {
+    showLoadingIcon();
+    console.log('Loading image...');
+  }, 5);
+
   img.onload = () => {
+    clearTimeout(loadingTimeout);
     hideLoadingIcon();
+    img.style.display = 'block';
   };
   img.src = src;
 };
