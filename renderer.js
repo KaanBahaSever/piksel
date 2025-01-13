@@ -12,6 +12,16 @@ const hideLoadingIcon = () => {
   document.getElementById('loading-icon').style.display = 'none';
 };
 
+const zoomImage = (factor) => {
+  const img = document.getElementById('main-image');
+  img.style.transform = `scale(${factor})`;
+}
+
+const zoomReset = () => {
+  zoomFactor = 1;
+  zoomImage(zoomFactor);
+}
+
 const loadImage = (src) => {
   const img = document.getElementById('main-image');
   img.style.display = 'none';
@@ -30,6 +40,7 @@ const loadImage = (src) => {
 };
 
 const previousImage = () => {
+  zoomReset();
   const image = document.getElementById('main-image');
   currentIndex = (currentIndex - 1);
   if (currentIndex < 0) {
@@ -39,6 +50,7 @@ const previousImage = () => {
 };
 
 const nextImage = () => {
+  zoomReset();
   const image = document.getElementById('main-image');
   currentIndex = (currentIndex + 1);
   if (currentIndex === imagePaths.length) {
@@ -76,5 +88,15 @@ window.addEventListener('keydown', (event) => {
   if (event.key === 'ArrowLeft') {
     previousImage();
   }
+});
 
+zoomFactor = 1;
+window.addEventListener('wheel', (event) => {
+  if (event.deltaY < 0) {
+    zoomFactor += 0.1;
+  } else {
+    zoomFactor -= 0.1;
+    if (zoomFactor < 0.1) zoomFactor = 0.1; // Prevent zooming out too much
+  }
+  zoomImage(zoomFactor);
 });
