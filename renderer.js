@@ -47,21 +47,6 @@ window.electron.openFile((filePath) => {
   document.getElementById('previous-image-button').addEventListener('click', previousImage);
 });
 
-/* window.addEventListener('DOMContentLoaded', () => {
-
-  const image = document.getElementById('main-image');
-  const currentDir = __dirname;
-  fs.readdir(currentDir, (err, files) => {
-    if (err) {
-      console.error('Error reading directory:', err);
-      return;
-    }
-    imagePaths = files.filter(file => imageExtensions.includes(path.extname(file).toLowerCase()));
-    image.src = `file://${path.join(currentDir, imagePaths[0])}`;
-  });
-  
-}); */
-
 //listen for keypresses
 window.addEventListener('keydown', (event) => {
   if (event.key === 'ArrowRight') {
