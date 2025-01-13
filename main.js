@@ -1,4 +1,4 @@
-const { app, BrowserWindow, screen } = require('electron')
+const { app, BrowserWindow, screen, Menu } = require('electron')
 const path = require('path')
 const url = require('url')
 
@@ -28,7 +28,9 @@ function createWindow() {
     }))
 
     /* mainWindow.webContents.openDevTools() */
-    mainWindow.menuBarVisible = false;
+
+    process.platform === "win32" && mainWin.removeMenu();
+    process.platform === "darwin" && Menu.setApplicationMenu(Menu.buildFromTemplate([]))
 
     mainWindow.on('closed', function () {
         mainWindow = null
