@@ -1,41 +1,56 @@
-# electron-serialport
-An example of how to use serialport in an electron app
+# ImageViewer
 
-**Clone and run for a quick way to see Electron and Serialport in action.**
+ImageViewer is a minimal Electron application designed to display images. It provides an efficient way to view images with a user-friendly interface.
 
-This is a minimal Electron application based on the [Quick Start Guide](http://electron.atom.io/docs/tutorial/quick-start) within the Electron documentation.
+## Features
 
-**Use this app along with the [Electron API Demos](http://electron.atom.io/#get-started) app for API code examples to help you get started.**
+- Display images using Electron.
+- Simple navigation between images.
+- Full-screen view for images.
 
-A basic Electron application needs just these files:
+## Getting Started
 
-- `package.json` - Points to the app's main file and lists its details and dependencies.
+### Prerequisites
+
+To clone and run this repository, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer.
+
+### Installation
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/KaanBahaSever/ImageViewer.git
+    ```
+2. Go into the repository:
+    ```bash
+    cd ImageViewer
+    ```
+3. Install dependencies:
+    ```bash
+    npm install
+    ```
+4. Run the app:
+    ```bash
+    npm start
+    ```
+
+## Usage
+
+Once the application is running, you can:
+
+- Open an image to view.
+- Navigate through images using the provided interface.
+
+## Development
+
+### Folder Structure
+
+- `package.json` - Lists the app's details and dependencies.
 - `main.js` - Starts the app and creates a browser window to render HTML. This is the app's **main process**.
 - `index.html` - A web page to render. This is the app's **renderer process**.
 
-You can learn more about each of these components within the [Quick Start Guide](http://electron.atom.io/docs/tutorial/quick-start).
+### Building
 
-## To Use
-
-To clone and run this repository you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+To build the application for distribution:
 
 ```bash
-# Clone this repository
-git clone https://github.com/serialport/electron-serialport.git
-# Go into the repository
-cd electron-serialport
-# Install dependencies
-npm install
-# Run the app
-npm start
-```
-
-Learn more about Electron and its API in the [documentation](http://electron.atom.io/docs/).
-
-## Other Example Apps
-
-For more example apps, see the
-[list of boilerplates](http://electron.atom.io/community/#boilerplates)
-created by the awesome electron community.
-
-#### License [CC0 1.0 (Public Domain)](LICENSE.md)
+npm run dist
