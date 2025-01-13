@@ -13,13 +13,16 @@
       "target": [
         {
           "target": "portable",
-          "arch": ["x64", "ia32"]
+          "arch": [
+            "x64",
+            "ia32"
+          ]
         }
       ]
     }
   },
   "devDependencies": {
     "electron": "^26.4.0",
-    "electron-builder": "^23.0.0"
+    "electron-builder": "^23.6.0"
   }
 }
