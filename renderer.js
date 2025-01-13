@@ -12,14 +12,18 @@ const hideLoadingIcon = () => {
   document.getElementById('loading-icon').style.display = 'none';
 };
 
-const zoomImage = (factor) => {
+const zoomImage = (factor, transformOrigin = 'center center') => {
   const img = document.getElementById('main-image');
   img.style.transform = `scale(${factor})`;
+  img.style.transformOrigin = transformOrigin;
 }
 
 const zoomReset = () => {
   zoomFactor = 1;
   zoomImage(zoomFactor);
+  img.style.transformOrigin = 'center center';
+  img.style.left = 'unset';
+  img.style.top = 'unset';
 }
 
 const loadImage = (src) => {
@@ -28,7 +32,6 @@ const loadImage = (src) => {
 
   const loadingTimeout = setTimeout(() => {
     showLoadingIcon();
-    console.log('Loading image...');
   }, 5);
 
   img.onload = () => {
@@ -61,7 +64,7 @@ const nextImage = () => {
 
 window.electron.openFile((filePath) => {
   const dirPath = path.dirname(filePath);
-
+  console.log('Directory path:', filePath);
   fs.readdir(dirPath, (err, files) => {
     if (err) {
       console.error('Error reading directory:', err);
@@ -90,13 +93,46 @@ window.addEventListener('keydown', (event) => {
   }
 });
 
+const img = document.getElementById('main-image');
+
 zoomFactor = 1;
-window.addEventListener('wheel', (event) => {
+img.addEventListener('wheel', (event) => {
   if (event.deltaY < 0) {
     zoomFactor += 0.1;
   } else {
     zoomFactor -= 0.1;
     if (zoomFactor < 0.1) zoomFactor = 0.1; // Prevent zooming out too much
   }
-  zoomImage(zoomFactor);
+  zoomImage(zoomFactor, `${event.offsetX}px ${event.offsetY}px`);
+});
+
+let isDragging = false;
+let startX, startY, initialX, initialY;
+
+img.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    startX = e.clientX;
+    startY = e.clientY;
+    initialX = img.offsetLeft;
+    initialY = img.offsetTop;
+    img.style.cursor = 'grabbing';
+});
+
+img.addEventListener('mouseleave', () => {
+    isDragging = false;
+    img.style.cursor = 'grab';
+});
+
+img.addEventListener('mouseup', () => {
+    isDragging = false;
+    img.style.cursor = 'grab';
+});
+
+img.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.clientX - startX;
+    const y = e.clientY - startY;
+    img.style.left = `${initialX + x}px`;
+    img.style.top = `${initialY + y}px`;
 });
