@@ -28,7 +28,7 @@ function createWindow() {
 
     /* mainWindow.webContents.openDevTools() */
 
-    process.platform === "win32" || proccess.platform === "linux" && mainWin.removeMenu();
+    process.platform === "win32" || proccess.platform === "linux" && mainWindow.removeMenu();
     process.platform === "darwin" && Menu.setApplicationMenu(Menu.buildFromTemplate([]))
 
     mainWindow.on('closed', function () {
