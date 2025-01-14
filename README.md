@@ -1,6 +1,6 @@
-# ImageViewer
+# piksel
 
-ImageViewer is a minimal Electron application designed to display images. It provides an efficient way to view images with a user-friendly interface.
+piksel is a minimal Electron application designed to display images. It provides an efficient way to view images with a user-friendly interface.
 
 ## Features
 
