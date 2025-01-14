@@ -1,7 +1,7 @@
 {
   "name": "piksel",
   "version": "1.0.0",
-  "description": "simple image viewer",
+  "description": "piksel",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
