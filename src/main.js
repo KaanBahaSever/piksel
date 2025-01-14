@@ -11,6 +11,7 @@ function createWindow() {
         width: width,
         height: height,
         backgroundColor: "#ffffff",
+        autoHideMenuBar: true,
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: true,
@@ -27,9 +28,6 @@ function createWindow() {
     }))
 
     /* mainWindow.webContents.openDevTools() */
-
-    process.platform === "win32" || proccess.platform === "linux" && mainWindow.removeMenu();
-    process.platform === "darwin" && Menu.setApplicationMenu(Menu.buildFromTemplate([]))
 
     mainWindow.on('closed', function () {
         mainWindow = null
