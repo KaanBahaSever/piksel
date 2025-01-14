@@ -17,7 +17,8 @@ function createWindow() {
             nodeIntegration: true,
             contextIsolation: true,
             preload: path.join(__dirname, 'preload.js')
-        }
+        },
+        icon: path.join(__dirname, 'assets/icon.png') // Set the icon here
     })
     mainWindow.maximize();
 

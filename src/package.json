@@ -1,28 +1,88 @@
 {
-  "name": "image-to-viewer",
+  "name": "piksel",
   "version": "1.0.0",
-  "description": "Your app description",
+  "description": "simple image viewer",
   "main": "main.js",
   "scripts": {
-    "start": "electron . C:/Users/BAHA/Pictures/Ge53Q7UXkAA6Y1b.jpg",
+    "start": "electron .",
     "dist": "electron-builder"
   },
-  "build": {
-    "appId": "com.example.yourapp",
-    "win": {
-      "target": [
-        {
-          "target": "portable",
-          "arch": [
-            "x64",
-            "ia32"
-          ]
-        }
-      ]
-    }
-  },
+  "keywords": [
+    "electron",
+    "image-viewer",
+    "desktop-app"
+  ],
+  "author": "Kaan Baha Sever",
+  "license": "MIT",
   "devDependencies": {
     "electron": "^26.4.0",
     "electron-builder": "^23.6.0"
+  },
+  "build": {
+    "appId": "com.example.imageviewer",
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico",
+      "fileAssociations": [
+        {
+          "ext": [
+            "png",
+            "jpg",
+            "jpeg",
+            "gif",
+            "webp",
+            "bmp",
+            "ico",
+            "tiff",
+            "svg"
+          ],
+          "name": "Image Files"
+        }
+      ]
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icon.icns",
+      "fileAssociations": [
+        {
+          "ext": [
+            "png",
+            "jpg",
+            "jpeg",
+            "gif",
+            "webp",
+            "bmp",
+            "ico",
+            "tiff",
+            "svg"
+          ],
+          "name": "Image Files"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "icon": "assets/icon.png",
+      "fileAssociations": [
+        {
+          "ext": [
+            "png",
+            "jpg",
+            "jpeg",
+            "gif",
+            "webp",
+            "bmp",
+            "ico",
+            "tiff",
+            "svg"
+          ],
+          "mimeType": "image/*",
+          "name": "Image Files"
+        }
+      ]
+    }
   }
 }
