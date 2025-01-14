@@ -19,7 +19,7 @@
     "electron-builder": "^23.6.0"
   },
   "build": {
-    "appId": "com.example.imageviewer",
+    "appId": "com.bumerang.piksel",
     "win": {
       "target": "nsis",
       "icon": "assets/app.ico",

@@ -5,8 +5,6 @@ const url = require('url')
 let mainWindow
 
 function createWindow() {
-
-    console.log("app initialized");
     const { width, height } = screen.getPrimaryDisplay().bounds;
 
     mainWindow = new BrowserWindow({
