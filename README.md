@@ -22,7 +22,7 @@ To clone and run this repository, you'll need [Git](https://git-scm.com) and [No
     ```
 2. Go into the repository:
     ```bash
-    cd ImageViewer
+    cd ImageViewer/src
     ```
 3. Install dependencies:
     ```bash
