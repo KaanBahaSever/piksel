@@ -1,6 +1,6 @@
 const { path, fs } = window.electron;
 
-const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif','.tiff', '.bmp', '.webp','.svg','.heic','.heif','ico','.tif','.jfif','.jpe','.jif','.jfi','.pjpeg','.pjp','.avif'];
+const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif','.tiff', '.bmp','.ico', '.webp','.svg','.heic','.heif','ico','.tif','.jfif','.jpe','.jif','.jfi','.pjpeg','.pjp','.avif'];
 currentIndex = 0;
 imagePaths = [];
 
