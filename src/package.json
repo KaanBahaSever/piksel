@@ -22,7 +22,7 @@
     "appId": "com.example.imageviewer",
     "win": {
       "target": "nsis",
-      "icon": "assets/icon.ico",
+      "icon": "assets/app.ico",
       "fileAssociations": [
         {
           "ext": [
@@ -42,7 +42,7 @@
     },
     "mac": {
       "target": "dmg",
-      "icon": "assets/icon.icns",
+      "icon": "assets/app.icns",
       "fileAssociations": [
         {
           "ext": [
@@ -65,7 +65,7 @@
         "AppImage",
         "deb"
       ],
-      "icon": "assets/icon.png",
+      "icon": "assets/app.png",
       "fileAssociations": [
         {
           "ext": [
