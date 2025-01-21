@@ -8,6 +8,10 @@ piksel is a minimal Electron application designed to display images. It provides
 - Simple navigation between images.
 - Full-screen view for images.
 
+## Cross-Platform Support
+
+This application is built using Electron, which allows it to run on multiple operating systems, including Windows, macOS, and Linux.
+
 ## Getting Started
 
 ### Prerequisites
