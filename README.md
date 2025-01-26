@@ -17,6 +17,12 @@ This application is built using Electron, which allows it to run on multiple ope
 You can download the latest release from the following Google Drive link:
 [Download Latest Release](https://drive.google.com/drive/folders/1chU11CzTStpNg6PGHXVvFri4AJny_2QD?usp=sharing)
 
+### Alternative Downloads
+
+- [Piksel 1.0.0 for Mac (Intel)](https://kaanbahasever.com/static/piksel-1.0.0-mac-intel.dmg)
+- [Piksel 1.0.0 for Mac (ARM64)](https://kaanbahasever.com/static/piksel-1.0.0-mac-arm64.dmg)
+- [Piksel 1.0.0 for Windows (x64)](https://kaanbahasever.com/static/piksel Setup 1.0.0-win-x64.exe)
+
 ## Getting Started
 
 ### Prerequisites
