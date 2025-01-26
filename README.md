@@ -12,7 +12,7 @@ piksel is a minimal Electron application designed to display images. It provides
 
 This application is built using Electron, which allows it to run on multiple operating systems, including Windows, macOS, and Linux.
 
-### Release Download
+## Release Download
 
 You can download the latest release from the following Google Drive link:
 [Download Latest Release](https://drive.google.com/drive/folders/1chU11CzTStpNg6PGHXVvFri4AJny_2QD?usp=sharing)
