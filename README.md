@@ -1,6 +1,6 @@
 # piksel
 
-![Piksel Icon](src/assets/app.png)
+![Piksel Icon](src/assets/app.ico)
 
 piksel is a minimal Electron application designed to display images. It provides an efficient way to view images with a user-friendly interface.
 
