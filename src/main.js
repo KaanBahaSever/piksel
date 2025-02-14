@@ -5,12 +5,13 @@ const url = require('url')
 let mainWindow
 
 function createWindow() {
-    const { width, height } = screen.getPrimaryDisplay().bounds;
+    const { width, height } = screen.getPrimaryDisplay().workAreaSize;
 
     mainWindow = new BrowserWindow({
         width: width,
         height: height,
         backgroundColor: "#ffffff",
+        show: false,
         autoHideMenuBar: true,
         webPreferences: {
             nodeIntegration: true,
@@ -19,7 +20,6 @@ function createWindow() {
         },
         icon: path.join(__dirname, 'assets/app.png') // Set the icon here
     })
-    mainWindow.maximize();
 
     mainWindow.loadURL(url.format({
         pathname: path.join(__dirname, 'index.html'),
@@ -32,16 +32,19 @@ function createWindow() {
     mainWindow.on('closed', function () {
         mainWindow = null
     })
+    mainWindow.maximize();
 }
 
 app.on('open-file', (event, filePath) => {
     event.preventDefault();
-    console.log('open-file event:', filePath);
     if (mainWindow) {
         mainWindow.webContents.send('open-file', filePath);
     } else {
         app.whenReady().then(() => {
             createWindow();
+            mainWindow.maximize();
+            mainWindow.show();
+            
             mainWindow.webContents.once('did-finish-load', () => {
                 mainWindow.webContents.send('open-file', filePath);
             });
@@ -55,7 +58,6 @@ app.on('ready', () => {
     // Handle file opening on Windows
     if (process.platform === 'win32' && process.argv.length >= 2) {
         const filePath = process.argv[1];
-        console.log('File path from argv:', filePath);
         mainWindow.webContents.once('did-finish-load', () => {
             mainWindow.webContents.send('open-file', filePath);
         });
