@@ -35,7 +35,7 @@ To clone and run this repository, you'll need [Git](https://git-scm.com) and [No
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/KaanBahaSever/ImageViewer.git
+    git clone https://github.com/KaanBahaSever/piksel.git
     ```
 2. Go into the repository:
     ```bash
